@@ -1,2 +1,0 @@
-# vqc
-virtual quantum computer
