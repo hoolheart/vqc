@@ -1,0 +1,69 @@
+[build-system]
+requires = [ "setuptools", ]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vqc"
+dynamic = ["version", "readme"]
+description = "Toolkit to build virtual quantum computer"
+license = {text = "MIT"}
+requires-python = ">=3.7"
+authors = [
+    { name = "Edward Chou", email = "prettyage.new@gmail.com" },
+]
+keywords = [
+    "quantum computing",
+    "virtual",
+    "toolkit",
+]
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering",
+]
+dependencies = [
+    "matplotlib",
+    "numpy",
+    "scipy",
+    "pandas",
+    "softlab",
+]
+
+[project.urls]
+Homepage = "https://github.com/hoolheart/vqc"
+
+[tool.setuptools]
+zip-safe = false
+
+[tool.setuptools.dynamic]
+version = {file = "vqc/VERSION.txt"}
+readme = {file = "README.rst"}
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["vqc", "vqc.*"]
+namespaces = false
+
+[tool.setuptools.package-data]
+vqc = [
+    "VERSION.txt"
+]
+
+[tool.black]
+line-length = 80
+target-version = ["py39"]
+include = "\\.pyi?$"
+
+[tool.isort]
+profile = "black"
+src_paths = ["vqc", "notebooks"]
